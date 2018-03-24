@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.parking.model">
+	<class name="Entrada" table="entrada">
+		<id name="id_entrada" type="integer" column="id_entrada">
+			<generator class="increment"></generator>
+		</id> 
+		<property name="matricula" type="string" column="matricula" />
+		<property name="marca" type="string" column="marca" />
+		<property name="color" type="string" column="color" />
+		<property name="hora_entrada" type="timestamp" column="hora_entrada" />
+
+		<many-to-one column="id_vehiculo"
+			class="com.parking.model.Vehiculo" name="id_vehiculo"
+			lazy="false" />
+	</class>
+</hibernate-mapping>

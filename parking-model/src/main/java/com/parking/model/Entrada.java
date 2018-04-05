@@ -66,11 +66,13 @@ public class Entrada implements Serializable {
 		this.hora_entrada = hora_entrada;
 	}
 
-	public Vehiculo getId_vehiculo() {
+	
+
+	public Vehiculo getVehiculo() {
 		return vehiculo;
 	}
 
-	public void setId_vehiculo(Vehiculo vehiculo) {
+	public void setVehiculo(Vehiculo vehiculo) {
 		this.vehiculo = vehiculo;
 	}
 

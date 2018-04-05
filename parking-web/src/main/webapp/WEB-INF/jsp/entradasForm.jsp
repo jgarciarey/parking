@@ -19,7 +19,8 @@
 	<div class="container">
 		<h2>Nueva Entrada</h2>
 
-		<form:form action="saveEntrada" method="post" modelAttribute="entrada">
+		<form:form action="saveEntrada" method="post"
+			modelAttribute="entradaDto">
 			<form:hidden path="id_entrada" />
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Matricula</label>
@@ -40,15 +41,9 @@
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Hora de Entrada</label>
-				<div class="col-sm-2">
-					<form:input class="form-control" path="hora_entrada" />
-				</div>
-			</div>
-			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Vehiculo</label>
 				<div class="col-sm-2">
-					<form:select path="id_vehiculo" class="selectpicker">
+					<form:select path="vehiculo" class="selectpicker">
 						<form:options items="${tiposVehiculo}" />
 					</form:select>
 					<%-- <form:input class="form-control" path="id_vehiculo" /> --%>

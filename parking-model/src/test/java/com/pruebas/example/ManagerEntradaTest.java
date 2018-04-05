@@ -35,7 +35,7 @@ public class ManagerEntradaTest extends BaseIntegrationTest {
 		}
 	}
 
-	//@Test
+	@Test
 	public void TestInsertarEntrada() {
 		System.out.println(this.entradaManager.agregar("1111", "Audi", "Azul", 1));
 		System.out.println(this.entradaManager.agregar("2222", "Volvo", "Blanco", 1));
@@ -83,7 +83,7 @@ public class ManagerEntradaTest extends BaseIntegrationTest {
 		entradaManager.deleteAll(entradaManager.listar());
 	}
 
-		@Test
+//		@Test
 	public void retirarVehiculo() {
 		System.out.println("Matricula: ");
 		matricula = in.nextLine();

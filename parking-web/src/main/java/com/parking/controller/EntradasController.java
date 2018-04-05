@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.parking.dao.EntradaDAO;
+import com.parking.dto.EntradaDto;
 import com.parking.manager.EntradaManager;
 import com.parking.manager.VehiculoManager;
 import com.parking.model.Entrada;
@@ -59,10 +60,11 @@ public class EntradasController {
 	
 	@RequestMapping(value = "/addEntrada", method = RequestMethod.GET)
 	public ModelAndView newContact(ModelAndView model) {
-	    model.addObject("entrada", new Entrada());
+		model.addObject("entradaDto", new EntradaDto());
 	    
 	    Map<Integer, String> tiposVehiculo = new HashMap<Integer, String>();
-	    for (Vehiculo v: vehiculoManager.listar()) {
+	    List<Vehiculo> lista = vehiculoManager.listar();
+	    for (Vehiculo v: lista) {
 	    	tiposVehiculo.put(v.getId_vehiculo(), v.getTipo());
 	    }
 	    
@@ -72,8 +74,9 @@ public class EntradasController {
 	}
 	
 	@RequestMapping(value = "/saveEntrada", method = RequestMethod.POST)
-	public ModelAndView saveEntrada(@ModelAttribute Entrada entrada) {
-	    entradaDAO.insertarEntrada(entrada);
+	public ModelAndView saveEntrada(@ModelAttribute("entradaDto") EntradaDto entrada) {
+		
+		entradaManager.agregar(entrada.getMatricula(), entrada.getMarca(), entrada.getColor(), entrada.getVehiculo());
 	    return new ModelAndView("redirect:/entradas");
 	}
 	

@@ -91,7 +91,7 @@ public class EntradaManagerImp implements EntradaManager {
 			entrada.setMatricula(matriculaNueva);
 			entrada.setMarca(marca);
 			entrada.setColor(color);
-			entrada.setId_vehiculo(this.vehiculoDAO.getVehiculoById(idVehiculo));
+			entrada.setVehiculo(this.vehiculoDAO.getVehiculoById(idVehiculo));
 
 			this.entradaDAO.modificarEntrada(entrada);
 
@@ -138,14 +138,14 @@ public class EntradaManagerImp implements EntradaManager {
 		// Si el vehiculo estuvo menos de una hora se le cobrara la hora completa en
 		// funcion del tipo de vehiculo
 		if (Metodos.restarFechas(entrada.getHora_entrada(), Metodos.getHoraActual()) < 3600000) {
-			importe = entrada.getId_vehiculo().getTarifa();
+			importe = entrada.getVehiculo().getTarifa();
 		} else {
 			importe = (Metodos.restarFechas(entrada.getHora_entrada(), Metodos.getHoraActual())
-					* entrada.getId_vehiculo().getTarifa());
+					* entrada.getVehiculo().getTarifa());
 		}
 
 		Salida salida = new Salida(entrada.getMatricula(), entrada.getMarca(), entrada.getColor(),
-				entrada.getHora_entrada(), Metodos.getHoraActual(), entrada.getId_vehiculo(), importe);
+				entrada.getHora_entrada(), Metodos.getHoraActual(), entrada.getVehiculo(), importe);
 		System.out.println(salida.toString());
 
 		this.entradaDAO.retirarVehiculo(entrada, salida);

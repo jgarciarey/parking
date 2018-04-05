@@ -6,24 +6,24 @@ public class Vehiculo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private int id_vehiculo;
+	private Integer id_vehiculo;
 	private String tipo;
-	private double tarifa;
+	private Double tarifa;
 
 	public Vehiculo() {
 	}
 
-	public Vehiculo(String tipo, double tarifa) {
+	public Vehiculo(String tipo, Double tarifa) {
 		super();
 		this.tipo = tipo;
 		this.tarifa = tarifa;
 	}
 
-	public int getId_vehiculo() {
+	public Integer getId_vehiculo() {
 		return id_vehiculo;
 	}
 
-	public void setId_vehiculo(int id_vehiculo) {
+	public void setId_vehiculo(Integer id_vehiculo) {
 		this.id_vehiculo = id_vehiculo;
 	}
 
@@ -35,11 +35,11 @@ public class Vehiculo implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public double getTarifa() {
+	public Double getTarifa() {
 		return tarifa;
 	}
 
-	public void setTarifa(double tarifa) {
+	public void setTarifa(Double tarifa) {
 		this.tarifa = tarifa;
 	}
 

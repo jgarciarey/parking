@@ -5,7 +5,9 @@
 
 <hibernate-mapping package="com.parking.model">
 	<class name="Vehiculo" table="vehiculo">
-		<id name="id_vehiculo" type="integer" column="id_vehiculo" />
+		<id name="id_vehiculo" type="integer" column="id_vehiculo">
+			<generator class="increment"></generator>
+		</id>
 
 		<property name="tipo" type="string" column="tipo" />
 		<property name="tarifa" type="double" column="tarifa" />
